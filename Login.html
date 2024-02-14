@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login to Tanzz</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="tazzlogo.png" type="image/x-icon">
+  <style>
+    video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index:-100;
+}
+  </style>
+</head>
+<body>
+    <video autoplay muted loop>
+        <source src="japan background.mp4" type="video/mp4">
+    </video>
+    <nav>
+        <div class="links">
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Contact</a>
+        </div>
+        <img src="fulllogo.png" class="mynav">
+    </nav>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="" method=""><br>
+                <h1>Create Account</h1>
+            
+                <div class="Sign up">
+                 
+                          <input type="text" name="email" id="email" class="form-control" placeholder="Enter your email">
+                        
+                          <input type="password" name="password" id="password" class="form-control"  placeholder="Enter your password">
+                    
+                    <br>
+                     
+                      <div class="dob-container">
+             
+                          <select name="birth_year" id="year" required>
+                              <option value="" disabled selected>Year</option>
+                          </select>
+                      
+                         
+                          <select name="birth_month" id="month" required>
+                              <option value="" disabled selected>Month</option>
+                             
+                          </select>
+                      
+                     
+                          <select name="birth_day" id="day" required>
+                              <option value="" disabled selected>Day</option>
+                          </select>
+                      </div>
+                    
+                     
+                    
+                      
+                      <input type="password" name="confirm_password" id="confirmPassword" placeholder="Confirm Password" required>
+                      <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+
+                      </form>
+                      <p>By clicking on the terms and condition, you agree to our<br><a href="" class="a2">Terms and condition</a> and <a href="" class="a2">Policy privacy</a></p>
+                      <button type="button" id="register" name="register" class="btn btn-success">Register Now</button>
+<br><br>
+                     
+                  </div>
+                  
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form >
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <button class="gsi-material-button">
+                        <div class="gsi-material-button-state"></div>
+                        <div class="gsi-material-button-content-wrapper">
+                          <div class="gsi-material-button-icon">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: block;">
+                              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+                              <path fill="none" d="M0 0h48v48H0z"></path>
+                            </svg>
+                          </div>
+                          <span class="gsi-material-button-contents">Sign in with Google</span>
+                          <span style="display: none;">Sign in with Google</span>
+                        </div>
+                      </button>  
+                </div>
+           <br>
+           <input type="text" name="login_email" id="login_email" class="form-control" placeholder="Enter your email">
+           <input type="password" name="login_password" id="login_password" class="form-control"  placeholder="Enter your password">
+
+           <a href="#">Forgot your password?</a>
+           <button type="button" id="login" name="login" class="btn btn-success">Login</button>
+        </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                  
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <img src="tazzlogo.png" width="35%">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start your journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   
+    <script>
+        // Function to populate the Year dropdown
+        function populateYears() {
+            var yearDropdown = document.getElementById("year");
+            var currentYear = new Date().getFullYear();
+            
+            for (var i = currentYear; i >= 1900; i--) {
+                var option = document.createElement("option");
+                option.text = i;
+                option.value = i;
+                yearDropdown.add(option);
+            }
+        }
+        
+        // Function to populate the Month dropdown
+        function populateMonths() {
+            var monthDropdown = document.getElementById("month");
+            var months = [
+                "January", "February", "March", "April", 
+                "May", "June", "July", "August", 
+                "September", "October", "November", "December"
+            ];
+        
+            for (var i = 0; i < months.length; i++) {
+                var option = document.createElement("option");
+                option.text = months[i];
+                option.value = i + 1; // Months are 1-indexed in JavaScript Date object
+                monthDropdown.add(option);
+            }
+        }
+        
+        // Function to populate the Day dropdown based on the selected month and year
+        function populateDays() {
+            var dayDropdown = document.getElementById("day");
+            var selectedMonth = document.getElementById("month").value;
+            var selectedYear = document.getElementById("year").value;
+        
+            // Clear existing options
+            dayDropdown.options.length = 1;
+        
+            // Get the number of days in the selected month and year
+            var daysInMonth = new Date(selectedYear, selectedMonth, 0).getDate();
+        
+            // Populate the Day dropdown
+            for (var i = 1; i <= daysInMonth; i++) {
+                var option = document.createElement("option");
+                option.text = i;
+                option.value = i;
+                dayDropdown.add(option);
+            }
+        }
+        
+   
+populateYears();
+populateMonths();
+populateDays(); 
+
+document.getElementById("year").addEventListener("change", populateDays);
+document.getElementById("month").addEventListener("change", populateDays);
+
+
+        function validatePasswords() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+    
+        if (password !== confirmPassword) {
+            alert("Passwords do not match. Please enter matching passwords.");
+        } else {
+            // Passwords match, you can proceed with form submission or other actions
+            // For now, let's just alert that the form is valid
+            alert("Form is valid. You can proceed with submission.");
+            // Add your form submission logic here
+        }
+    }
+    const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});
+function togglePasswordVisibility() {
+    var passwordInput = document.getElementById("password");
+    var icon = document.querySelector(".toggle-password");
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        icon.innerHTML = "&#128064;"; // Eye closed icon
+    } else {
+        passwordInput.type = "password";
+        icon.innerHTML = "&#128065;"; // Eye open icon
+    }
+}
+      </script>
+      <script src="renderer.js"></script>
+      <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+  
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+         apiKey: "AIzaSyB1Mmo7OrOsQmd40T0GcNeqVMyqYC1Fv1E",
+      authDomain: "tanzz-intelligence-f0c4d.firebaseapp.com",
+      projectId: "tanzz-intelligence-f0c4d",
+      storageBucket: "tanzz-intelligence-f0c4d.appspot.com",
+      messagingSenderId: "451514766747",
+      appId: "1:451514766747:web:83dbda22cdd8327a1f3d3e",
+      measurementId: "G-Z5SRX0PN0F"
+        };
+  
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth();
+        console.log(app);
+  
+        
+  
+        //----- New Registration code start	  
+        document.getElementById("register").addEventListener("click", function() {
+            var email =  document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            //For new registration
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              // Signed in 
+              const user = userCredential.user;
+              console.log(user);
+              alert("Registration successfully!!");
+              // ...
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              // ..
+              console.log(errorMessage);
+              alert(error);
+            });		  		  
+        });
+        //----- End
+  
+        // Login code
+  document.getElementById("login").addEventListener("click", function() {
+    var email = document.getElementById("login_email").value;
+    var password = document.getElementById("login_password").value;
+  
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      console.log(user);
+      alert(user.email + " Login successfully!!!");
+  
+      // Redirect to index.html
+      window.location.href = "index.html";
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      console.log(errorMessage);
+      alert(errorMessage);
+    });
+  });
+  
+        //----- Logout code start	  
+        document.getElementById("logout").addEventListener("click", function() {
+            signOut(auth).then(() => {
+                // Sign-out successful.
+                console.log('Sign-out successful.');
+                alert('Sign-out successful.');
+                document.getElementById('logout').style.display = 'none';
+              }).catch((error) => {
+                // An error happened.
+                console.log('An error happened.');
+              });		  		  
+        });
+        var user = firebase.auth().currentUser;
+  
+  user.sendEmailVerification().then(function() {
+    // Verification code sent successfully.
+  }).catch(function(error) {
+    // Handle errors here.
+  });
+        //----- End
+  
+      </script>
+     
+          </body>
+</html>
